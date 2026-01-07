@@ -1,0 +1,15 @@
+scenario_id,metric,value,calculation,source_columns
+S3_Unique_Trials,Total Count,505,Total trials in this scenario,Row count
+S3_Unique_Trials,Citations/Trials Mentioning Sex,497,Trials where sex_consideration_score > 0,sex_consideration_score (calculated from flags)
+S3_Unique_Trials,Mentioning Sex %,98.4%,Mentioning Sex / Total × 100,sex_consideration_score
+S3_Unique_Trials,Mentions Sex Differences,16,Count where any_source_mentions_sex_differences == True,any_source_mentions_sex_differences
+S3_Unique_Trials,Mentions Sex Stratification,4,Count where any_source_mentions_sex_stratification == True,any_source_mentions_sex_stratification
+S3_Unique_Trials,Mentions Sex Subgroup,1,Count where any_source_mentions_sex_subgroup == True,any_source_mentions_sex_subgroup
+S3_Unique_Trials,Mentions Pregnancy Related,224,Count where any_source_pregnancy_related == True,any_source_pregnancy_related
+S3_Unique_Trials,Mentions Menopause Related,21,Count where any_source_menopause_related == True,any_source_menopause_related
+S3_Unique_Trials,Mentions Hormone Related,10,Count where any_source_sex_hormone_related == True,any_source_sex_hormone_related
+S3_Unique_Trials,Includes Women,496,Count where nct_sex_includes_women == True,nct_sex_includes_women
+S3_Unique_Trials,Includes Women %,98.2%,Includes Women / Total × 100,nct_sex_includes_women
+S3_Unique_Trials,Women-Only Trials,26,Count where nct_sex_women_only == True,nct_sex_women_only
+S3_Unique_Trials,Avg Sex Consideration Score,1.57,Mean of sex_consideration_score,sex_consideration_score
+S3_Unique_Trials,Median Sex Consideration Score,1.0,Median of sex_consideration_score,sex_consideration_score

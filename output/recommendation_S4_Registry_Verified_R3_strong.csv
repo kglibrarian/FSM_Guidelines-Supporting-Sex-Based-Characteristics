@@ -1,0 +1,74 @@
+guideline_pmid,citations_in_scenario,avg_sex_score,max_sex_score,citations_with_sex,cites_sex_differences,cites_sex_stratification,cites_sex_subgroup,sex_snippets_count,sex_evidence_snippets,exclusion_snippets_count,exclusion_evidence_snippets,cites_trials_with_women,pct_citing_sex,scenario_id,category
+31813278,19.0,1.37,2.0,19.0,0.0,0.0,0.0,0.0,,0.0,,19.0,100.0,S4_Registry_Verified,Moderate
+31838890,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+31857196,9.0,1.44,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,9.0,100.0,S4_Registry_Verified,Moderate
+32068084,11.0,1.55,2.0,11.0,0.0,0.0,0.0,0.0,,0.0,,11.0,100.0,S4_Registry_Verified,Moderate
+32148086,24.0,1.33,2.0,23.0,0.0,0.0,0.0,0.0,,0.0,,23.0,95.8,S4_Registry_Verified,Moderate
+32453156,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+32776842,3.0,1.67,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,3.0,100.0,S4_Registry_Verified,Moderate
+33028085,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33070654,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33081524,7.0,1.29,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,7.0,100.0,S4_Registry_Verified,Moderate
+33081527,10.0,1.0,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,9.0,90.0,S4_Registry_Verified,Moderate
+33170755,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33250265,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33417901,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33518378,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,1.0,100.0,S4_Registry_Verified,Moderate
+33691468,7.0,1.86,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,7.0,100.0,S4_Registry_Verified,Moderate
+33827230,26.0,1.58,3.0,26.0,0.0,0.0,0.0,0.0,,4.0,"l woman within 12 months of last menses without a negative pregnancy test or not committing to adequate birth control (e.g. || angiography that is considered atherosclerotic
+6. negative pregnancy test in a female who has had any menses in the last 18 || ricular assist device
+* pregnancy or lactation (a negative pregnancy test must be obtained prior to randomization for women",26.0,100.0,S4_Registry_Verified,Moderate
+33840208,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+33934611,2.0,0.5,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,1.0,50.0,S4_Registry_Verified,Weak
+34074137,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+34187171,5.0,1.2,2.0,5.0,0.0,0.0,0.0,0.0,,0.0,,5.0,100.0,S4_Registry_Verified,Moderate
+34315230,27.0,1.3,3.0,26.0,0.0,0.0,0.0,0.0,,0.0,,26.0,96.3,S4_Registry_Verified,Moderate
+34404224,8.0,1.0,1.0,8.0,0.0,0.0,0.0,0.0,,0.0,,8.0,100.0,S4_Registry_Verified,Moderate
+34407637,3.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,,0.0,,3.0,100.0,S4_Registry_Verified,Moderate
+34496612,4.0,1.5,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+34648743,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+35072519,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+35306832,4.0,1.25,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+35708012,4.0,1.5,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+35753858,8.0,1.62,3.0,8.0,0.0,0.0,0.0,0.0,,1.0,"t fulfills all the following criteria:
+
+  * has a negative pregnancy test at screening and on the day of the first dose (da",8.0,100.0,S4_Registry_Verified,Moderate
+35862198,13.0,1.69,4.0,13.0,1.0,0.0,0.0,1.0,"[ABSTRACT] = .02), which persisted after adjustment for age, sex, baseline step counts, and functional class (model estimated difference, 1,250 steps; p = .03). the intervention arm took a higher average number of steps on all days between days 9 and 84 (p < .05, all days). there was no difference in week 12 six-minute walk distance. analysis of secondary end points suggested improvements in",0.0,,13.0,100.0,S4_Registry_Verified,Moderate
+36043414,3.0,1.33,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,3.0,100.0,S4_Registry_Verified,Moderate
+36055903,2.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,,0.0,,2.0,100.0,S4_Registry_Verified,Moderate
+36120864,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited
+36252095,17.0,1.65,3.0,17.0,0.0,0.0,0.0,0.0,,2.0,"ears
+* women of child-bearing potential without a negative pregnancy test
+* inclusion in another study
+* heart rate above 7 || e subjects of child-bearing potential must have a negative pregnancy test done within 7 days prior to the index procedure p",17.0,100.0,S4_Registry_Verified,Moderate
+36307329,9.0,1.22,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,9.0,100.0,S4_Registry_Verified,Moderate
+36475715,16.0,1.75,5.0,16.0,1.0,0.0,1.0,0.0,,0.0,,16.0,100.0,S4_Registry_Verified,Moderate
+36503287,34.0,1.56,6.0,34.0,3.0,1.0,0.0,3.0,"[ABSTRACT] nd tcfa+pb ≥70%+mla ≤4 mm2 (p=0.003). by age- and sex-adjusted logistic regression analysis, frailty was found to be strongly and independent || [ABSTRACT] cute coronary syndrome. enrollment was stratified by sex (women/men ratio 2:1) and age (55-64, 65-74, 75-8 | [ABSTRACT] e coronary syndrome. enrollment was stratified by sex (women/men ratio 2:1) and age (55-64, 65-74, 75-85, and >85 years). women were administered menopause questionnaires during admission. an independent core lab quantified coronary artery disease extent using the gensini score, which classifies both significant (>50%) and nonsignificant lesions. linear correlation was used to appraise the association between the gensini score and menopausal age. we enrolled 675 patients, 249 men and 426 women (mean age 74 y...[truncated]",2.0,"study
+20. for women of childbearing potential no negative pregnancy test and no agree to use reliable method of birth cont || * females of child-bearing potential must have a negative pregnancy test at enrollment and be willing to use 2 methods of",34.0,100.0,S4_Registry_Verified,Moderate
+36529563,4.0,1.25,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+36621810,7.0,1.86,3.0,7.0,0.0,0.0,0.0,0.0,,0.0,,7.0,100.0,S4_Registry_Verified,Moderate
+36633003,7.0,1.29,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,7.0,100.0,S4_Registry_Verified,Moderate
+36912134,28.0,1.61,3.0,28.0,2.0,0.0,0.0,2.0,"[ABSTRACT] attack, vascular disease, age 65-74 years, female sex) score greater than or equal to 4 or greater than or equal to 2 with risk factors for poaf, no history of preoperative af, and poaf lasting less than 24 hours during hospitalization were enrolled. the intervention group underwent continuous cardiac rhythm monitoring with wearable, patch-based monitors for 30 days after randomization. monitoring was not mandated in the usual care group within 30 days after randomization. the primary outcome was cumulative af and/or atrial flutter lasting 6 minutes or longer detected by continuous cardiac rhythm monitoring or by a 12-lead electrocardiogram within 30 days of randomization. prespecified secondary outcomes included cumulative af lasting 6 hours or longer and 24 hours or longer wit...[truncated]",0.0,,28.0,100.0,S4_Registry_Verified,Moderate
+37092336,10.0,1.8,2.0,10.0,0.0,0.0,0.0,0.0,,0.0,,10.0,100.0,S4_Registry_Verified,Moderate
+37288568,20.0,1.25,2.0,18.0,0.0,0.0,0.0,0.0,,1.0,* females of child-bearing potential must have a negative pregnancy test because of the potentially dangerous effects on t,18.0,90.0,S4_Registry_Verified,Moderate
+38047353,15.0,1.33,2.0,15.0,0.0,0.0,0.0,0.0,,2.0,"of childbearing potential are required to have a negative pregnancy test within 7 days prior to device procedure
+* partici || of childbearing potential are required to have a negative pregnancy test within 7 days prior to device procedure
+* partici",15.0,100.0,S4_Registry_Verified,Moderate
+38406869,6.0,1.17,2.0,6.0,0.0,0.0,0.0,0.0,,0.0,,6.0,100.0,S4_Registry_Verified,Moderate
+38415358,8.0,1.25,2.0,8.0,0.0,0.0,0.0,0.0,,0.0,,8.0,100.0,S4_Registry_Verified,Moderate
+38567497,11.0,1.09,2.0,11.0,0.0,0.0,0.0,0.0,,0.0,,11.0,100.0,S4_Registry_Verified,Moderate
+38779844,3.0,1.33,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,3.0,100.0,S4_Registry_Verified,Moderate
+38804130,4.0,1.5,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+39101202,22.0,1.73,2.0,22.0,0.0,0.0,0.0,0.0,,4.0,"pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p || pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p || pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p",22.0,100.0,S4_Registry_Verified,Moderate
+39315436,4.0,1.75,4.0,4.0,1.0,0.0,0.0,1.0,"[REGISTRY] percentage estimates to dxa references classified by sex evaluation of the accuracy of a computer vision-b | [ABSTRACT] 134 healthy adults ranging in age (21-76 years), sex (61.2% women), race (60.4% white; 23.9% black), and body mass index (bmi, 18.5-51.6 kg/m<sup>2</sup>) were evaluated at two clinical sites (n = 64 at mgh, n = 70 at pbrc). each participant had %bf measured with vbc, three consumer and two professional bioimpedance analysis (bia) systems. the pbrc participants also had air displacement plethysmography (adp) measured. %bf measured by dual-energy x-ray absorptiometry (dxa) was set as the reference against which all other %bf measurements were compared. to test our scientific hypothesis we run multiple, pair-wise wilcoxon signed rank tests where we compare each c...[truncated]",0.0,,4.0,100.0,S4_Registry_Verified,Moderate
+39429201,70.0,1.7,6.0,69.0,4.0,2.0,0.0,3.0,"[ABSTRACT] ation scheme with block sizes of four, stratified by sex and site. allocation was concealed from all but t | [ABSTRACT] on scheme with block sizes of four, stratified by sex and site. allocation was concealed from all but the pharmacists and statisticians. participants were assigned in a 1:1 ratio to low-dose (10 mg/kg per day) or moderate-dose (20 mg/kg per day) oral hydroxyurea taken once daily with monthly clinical evaluation and laboratory monitoring. the primary outcome was initial stroke or transient ischaemic attack, centrally adjudicated. the secondary outcome was all-cause hospitalisation. we used the intention-to-treat population for data analysis. the trial was stopped early for futility after a || [ABSTRACT] = 200) for 12 weeks. randomization was stratified by sex an...[truncated]",4.0,"* females of child-bearing potential must have a negative pregnancy test at enrollment
+* persons who are currently taking || of childbearing potential are required to have a negative pregnancy test prior to enrollment)
+* active enrollment in other || myocardial infarction
+* female patient is either not of childbearing potential, defined as postmenopausal for at least one year",68.0,98.6,S4_Registry_Verified,Moderate
+39676661,9.0,1.33,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,9.0,100.0,S4_Registry_Verified,Moderate
+40371484,9.0,1.67,4.0,9.0,1.0,0.0,0.0,1.0,"[ABSTRACT] rankin scale. prespecified subgroups were defined according to sex, age, initial cardiac rhythm, time to return of s",0.0,,9.0,100.0,S4_Registry_Verified,Moderate
+40373524,14.0,1.36,4.0,14.0,0.0,0.0,0.0,0.0,,0.0,,14.0,100.0,S4_Registry_Verified,Moderate
+40526054,7.0,1.57,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,7.0,100.0,S4_Registry_Verified,Moderate
+41084821,10.0,1.8,4.0,10.0,1.0,1.0,0.0,1.0,"[ABSTRACT] pacity between women referred to supervised mixed-sex, supervised women-only, or home-based cardiac rehabilitation (cr). cardiac rehabilitation for heart event recovery (cr4her) was a single-blind, 3 parallel-arm, pragmatic randomized controlled trial. the study took place between november 1, 2009, and july 31, 2013. low-risk patients with coronary artery disease were recruited from 6 hospitals in ontario, canada. consenting participants completed a preprogram survey, and clinical data were extracted from charts. participants were referred to cr at 1 of 3 sites. after intake assessment, including a graded exercise stress test, eligible patients were randomized to supervised mixed-sex, supervised women-only, or home-based cr. six months later, cr adherence and exit assessment dat...[truncated]",0.0,,10.0,100.0,S4_Registry_Verified,Moderate
+41122889,20.0,1.45,2.0,19.0,0.0,0.0,0.0,0.0,,0.0,,19.0,95.0,S4_Registry_Verified,Moderate
+41164866,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,0.0,S4_Registry_Verified,Inadequate - No Trials Cited

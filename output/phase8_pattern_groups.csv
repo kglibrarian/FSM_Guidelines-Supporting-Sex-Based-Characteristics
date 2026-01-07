@@ -1,0 +1,11 @@
+flag_name,pattern_group,num_patterns,example_patterns,logic,also_triggers
+any_source_mentions_sex_differences,SEX_DIFF_PATTERNS,18,"sex-specific, sex-based, sex difference*, between men and women, sex-stratified, by sex, sex disparity",OR across all patterns (any match = True),Elevated to True if sex_interaction found
+any_source_mentions_sex_stratification,STRAT_PATTERNS,5,"stratified by sex/gender, sex-stratified, analyzed separately for sex, separate analyses by sex",OR across all patterns,N/A
+any_source_mentions_sex_subgroup,SUBGROUP_PATTERNS,5,"subgroup analysis sex/gender/men/women, sex subgroup, interaction sex/gender",OR across all patterns,Elevates sex_differences to True if not already
+any_source_mentions_sex_interaction,INTERACTION_PATTERNS,5,"sex interaction, interaction sex/gender, interaction between sex",OR across all patterns,Elevates sex_differences to True
+any_source_pregnancy_related,PREG_PATTERNS,10,"pregnant, pregnancy, gestational, lactating, breastfeeding, postpartum, prenatal",OR across all patterns,N/A
+any_source_menopause_related,MENO_PATTERNS,6,"menopause*, postmenopause*, perimenopause*, hot flash, hormone replacement",OR across all patterns,N/A
+any_source_hormonal_related,HORM_PATTERNS,11,"hormonal, estrogen, progesterone, testosterone, endocrine, menstrual cycle",OR across all patterns,Parent flag - spawns sex_hormone_related and menstrual_cycle
+any_source_contraception_required,CONTRA_PATTERNS,8,"contraception, contraceptive, birth control, effective contraception required",OR across all patterns,N/A
+any_source_excludes_pregnant_women,PREG_EXCL_PATTERNS,5,"exclude pregnant, must not be pregnant, negative pregnancy test",OR across all patterns,N/A
+any_source_excludes_childbearing_potential,CBP_EXCL_PATTERNS,3,"exclude women childbearing potential, not of childbearing potential",OR across all patterns,N/A

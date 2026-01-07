@@ -1,0 +1,10 @@
+Metric,MASTER (All PMIDs),TRIALS-ONLY
+Unique PMIDs represented,588,508
+Total PMID-NCT pairs,784,529
+Extra pairs (beyond 1-per-PMID),196,21
+Unique NCTs (ALL),684,465
+Unique PRIMARY NCTs,505,451
+Unique SECONDARY NCTs,188,19
+PMIDs with exactly 1 NCT,561,493
+PMIDs with exactly 2 NCTs,15,11
+PMIDs with 3+ NCTs,12,4

@@ -1,0 +1,7 @@
+scenario_id,scenario_name,total_count,count_type,mentioning_sex_pct,avg_sex_consideration_score,includes_women_pct
+S1_PubMed_PT,PubMed PT,1527,citation,40.3%,0.63,
+S2_PubMed_OR_NCT,PubMed OR NCT,1612,citation,43.3%,0.68,
+S3_Unique_Trials,Unique Trials,505,trial,98.4%,1.57,98.2%
+S4_Registry_Verified,Registry-Verified,630,citation,98.7%,1.57,98.6%
+S5_All_NCTs,All NCTs,630,citation,98.7%,1.57,98.6%
+S6_High_Quality,High-Quality,617,citation,98.7%,1.56,98.5%

@@ -1,0 +1,17 @@
+scenario_id,metric,value,calculation,source_columns
+S6_High_Quality,Total Count,617,Total citations in this scenario,Row count
+S6_High_Quality,Unique Guidelines,61,Count of unique guideline PMIDs,guideline_pmid
+S6_High_Quality,Unique References,575,Count of unique reference PMIDs (excluding NaN),ref_pmid
+S6_High_Quality,Citations/Trials Mentioning Sex,609,Citations where sex_consideration_score > 0,sex_consideration_score (calculated from flags)
+S6_High_Quality,Mentioning Sex %,98.7%,Mentioning Sex / Total × 100,sex_consideration_score
+S6_High_Quality,Mentions Sex Differences,16,Count where any_source_mentions_sex_differences == True,any_source_mentions_sex_differences
+S6_High_Quality,Mentions Sex Stratification,4,Count where any_source_mentions_sex_stratification == True,any_source_mentions_sex_stratification
+S6_High_Quality,Mentions Sex Subgroup,1,Count where any_source_mentions_sex_subgroup == True,any_source_mentions_sex_subgroup
+S6_High_Quality,Mentions Pregnancy Related,278,Count where any_source_pregnancy_related == True,any_source_pregnancy_related
+S6_High_Quality,Mentions Menopause Related,25,Count where any_source_menopause_related == True,any_source_menopause_related
+S6_High_Quality,Mentions Hormone Related,9,Count where any_source_sex_hormone_related == True,any_source_sex_hormone_related
+S6_High_Quality,Includes Women,608,Count where nct_sex_includes_women == True,nct_sex_includes_women
+S6_High_Quality,Includes Women %,98.5%,Includes Women / Total × 100,nct_sex_includes_women
+S6_High_Quality,Women-Only Trials,29,Count where nct_sex_women_only == True,nct_sex_women_only
+S6_High_Quality,Avg Sex Consideration Score,1.56,Mean of sex_consideration_score,sex_consideration_score
+S6_High_Quality,Median Sex Consideration Score,1.0,Median of sex_consideration_score,sex_consideration_score

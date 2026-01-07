@@ -1,0 +1,17 @@
+PMID Category,MASTER (All),TRIALS-ONLY
+PMIDs with exactly 1 NCT,561,493
+  → Pairs contributed,561,493
+  → Primary pairs,561,493
+  → Non-primary pairs,0,0
+,,
+PMIDs with exactly 2 NCTs,15,11
+  → Pairs contributed,30,22
+  → Primary pairs,15,11
+  → Non-primary pairs,15,11
+,,
+PMIDs with 3+ NCTs,12,4
+  → Pairs contributed,193,14
+  → Primary pairs,12,4
+  → Non-primary pairs,181,10
+,,
+TOTAL,784,529

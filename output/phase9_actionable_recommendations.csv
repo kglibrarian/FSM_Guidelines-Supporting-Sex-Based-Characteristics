@@ -1,0 +1,7 @@
+stakeholder,action,timeline,impact,related_scenarios,related_recommendations
+Guideline Development Organizations,Mandate sex-stratified analysis review in evidence evaluation criteria,Immediate (next guideline update cycle),HIGH - Affects all future guidelines,All scenarios,"R1, R2 across scenarios"
+Guideline Development Organizations,Require minimum % of evidence to include sex considerations,6-12 months (policy development),HIGH - Improves evidence standards,"S2, S4, S6","R1, R2"
+"Research Funders (NIH, foundations)",Prioritize funding for trials with sex-inclusive design and analysis,Immediate (next funding cycle),CRITICAL - Addresses gaps at source,"S4, S6","G1, G2"
+Clinical Trial Investigators,Include sex-stratified analyses in all trial publications,Immediate,HIGH - Improves data availability,All scenarios,G1
+Medical Journals,Require sex-disaggregated data reporting in trial publications,6 months (editorial policy),HIGH - Affects all new publications,All scenarios,G1
+"Regulatory Agencies (FDA, EMA)",Strengthen requirements for sex-specific efficacy/safety data,1-2 years (regulatory process),CRITICAL - Mandatory for approvals,"S4, S6","G1, G2"

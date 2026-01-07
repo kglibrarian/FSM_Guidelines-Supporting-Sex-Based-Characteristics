@@ -1,0 +1,8 @@
+Metric,Count,Percentage
+Total PMIDs,7725,100.0%
+Clinical trial PMIDs (is_clinical_trial_pt_type=True),1455,18.8%
+Non-trial PMIDs,6270,81.2%
+PMIDs with any registry ID,634,8.2%
+PMIDs with NCT numbers (has_nct=True),588,7.6%
+Trial PMIDs with NCTs (⭐ main cohort),508,6.6%
+Non-trial PMIDs with NCTs,80,1.0%

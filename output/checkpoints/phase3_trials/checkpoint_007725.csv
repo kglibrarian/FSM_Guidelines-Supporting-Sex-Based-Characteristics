@@ -1,0 +1,2 @@
+ref_pmid,ref_is_clinical_trial_pt_type,ref_publication_types,ref_primary_nct_number,ref_primary_nct_source,ref_all_registry_ids,ref_all_nct_numbers,ref_all_structured_nct_numbers,ref_all_nct_source_pairs,ref_all_structured_nct_source_pairs,ref_has_abstract,ref_abstract,ref_fetch_status
+13243706,False,Journal Article,,,,,,,,False,,success

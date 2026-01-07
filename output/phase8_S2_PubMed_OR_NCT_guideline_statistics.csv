@@ -1,0 +1,102 @@
+guideline_pmid,citations_in_scenario,avg_sex_score,max_sex_score,citations_with_sex,cites_sex_differences,cites_sex_stratification,cites_sex_subgroup,sex_snippets_count,sex_evidence_snippets,exclusion_snippets_count,exclusion_evidence_snippets,pct_citing_sex,scenario_id,category
+31813278,48.0,0.54,2.0,19.0,0.0,0.0,0.0,0.0,,0.0,,39.6,S2_PubMed_OR_NCT,Weak
+31838890,9.0,0.11,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,11.1,S2_PubMed_OR_NCT,Weak
+31857196,20.0,0.65,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,45.0,S2_PubMed_OR_NCT,Weak
+32068084,29.0,0.66,2.0,12.0,1.0,0.0,0.0,1.0,"[ABSTRACT] itral valve prolapse and holosystolic mr for age, gender, atrial fibrillation, ejection fraction, and ero (flow convergence). mid-late systolic mr versus holosystolic mr groups were well matched, including for comorbidity, blood pressure, and heart rate (all p>0.10). mid-late systolic mr versus holosystolic mr caused similar color jet area, midsystolic regurgitant flow, and peak velocity (p>0.40). despite identical ero (0.25±0.15 versus 0.25±0.15 cm(2); p=0.53), the shorter duration of mid-late systolic mr (233±56 versus 426±50 ms; p<0.0001) yielded lower regurgitant volume (24.8±13.4 versus 48.6±25.6 ml; p<0.0001). mr consequences, systolic pulmonary pressure, and left ventricular and left atrial volume index (all p<0.001) were more benign in mid-late systolic mr versus holosys...[truncated]",0.0,,41.4,S2_PubMed_OR_NCT,Weak
+32148086,47.0,0.68,2.0,23.0,0.0,0.0,0.0,0.0,,0.0,,48.9,S2_PubMed_OR_NCT,Weak
+32443079,23.0,1.04,5.0,18.0,1.0,0.0,1.0,0.0,,0.0,,78.3,S2_PubMed_OR_NCT,Moderate
+32453156,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,S2_PubMed_OR_NCT,Inadequate - No Trials Cited
+32460555,8.0,0.5,2.0,2.0,0.0,0.0,0.0,0.0,,0.0,,25.0,S2_PubMed_OR_NCT,Weak
+32776842,3.0,1.67,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,100.0,S2_PubMed_OR_NCT,Moderate
+33028085,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,S2_PubMed_OR_NCT,Inadequate - No Trials Cited
+33070654,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+33081524,37.0,0.24,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,18.9,S2_PubMed_OR_NCT,Weak
+33081527,101.0,0.11,2.0,10.0,0.0,0.0,0.0,0.0,,0.0,,9.9,S2_PubMed_OR_NCT,Weak
+33081528,66.0,0.64,2.0,30.0,0.0,0.0,0.0,0.0,,0.0,,45.5,S2_PubMed_OR_NCT,Weak
+33170755,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+33250265,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+33417901,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,S2_PubMed_OR_NCT,Inadequate - No Trials Cited
+33518378,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,100.0,S2_PubMed_OR_NCT,Moderate
+33691468,12.0,1.08,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,58.3,S2_PubMed_OR_NCT,Moderate
+33827230,56.0,0.73,3.0,26.0,0.0,0.0,0.0,0.0,,4.0,"l woman within 12 months of last menses without a negative pregnancy test or not committing to adequate birth control (e.g. || angiography that is considered atherosclerotic
+6. negative pregnancy test in a female who has had any menses in the last 18 || ricular assist device
+* pregnancy or lactation (a negative pregnancy test must be obtained prior to randomization for women",46.4,S2_PubMed_OR_NCT,Weak
+33840208,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,0.0,S2_PubMed_OR_NCT,Inadequate - No Trials Cited
+33934611,2.0,0.5,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,50.0,S2_PubMed_OR_NCT,Weak
+34024115,17.0,1.24,3.0,9.0,0.0,0.0,0.0,0.0,,8.0,"liable contraception who do not have a documented negative pregnancy test
+* currently receiving an investigational drug or || liable contraception who do not have a documented negative pregnancy test
+* currently receiving an investigational drug or || liable contraception who do not have a documented negative pregnancy test
+* currently receiving an investigational drug or",52.9,S2_PubMed_OR_NCT,Moderate
+34074137,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+34187171,17.0,0.47,2.0,6.0,1.0,0.0,0.0,1.0,[ABSTRACT] 7% had received midazolam 0.06 mg kg(-1). age and gender differences in neuropsychological and physiological responses,0.0,,35.3,S2_PubMed_OR_NCT,Weak
+34315230,48.0,0.96,3.0,32.0,5.0,0.0,0.0,5.0,"[ABSTRACT] c whites. these data suggest intrinsic ethnic and gender differences in abi. such differences, although small in magni || [ABSTRACT] h special attention to critical limb ischemia and sex differences. an age-standardized randomly selected population || [ABSTRACT] 7.3). pad prevalence and incidence did not differ by sex alone. this study provides comprehensive estimate || [ABSTRACT] this study sought to examine sex-related differences in outcomes related to peripheral vascular intervention (pvi) procedures. percutaneous pvi is frequently performed for the treatment of peripheral arterial disease (pad). however, little is known about sex-related differences related to pvi procedures. we assessed the impact of sex among 12,379 patients (41% female) who underwent lower extremity (le)...[truncated]",0.0,,66.7,S2_PubMed_OR_NCT,Weak
+34404224,15.0,0.53,1.0,8.0,0.0,0.0,0.0,0.0,,0.0,,53.3,S2_PubMed_OR_NCT,Weak
+34407637,4.0,0.75,1.0,3.0,0.0,0.0,0.0,0.0,,0.0,,75.0,S2_PubMed_OR_NCT,Weak
+34496612,14.0,0.43,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,28.6,S2_PubMed_OR_NCT,Weak
+34632822,8.0,0.25,2.0,1.0,0.0,0.0,0.0,0.0,,0.0,,12.5,S2_PubMed_OR_NCT,Weak
+34648743,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,,0.0,,100.0,S2_PubMed_OR_NCT,Moderate
+35072519,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+35249373,32.0,1.62,4.0,22.0,2.0,0.0,0.0,2.0,"[ABSTRACT] ointes (tdp). qtc interval duration is influenced by sex hormones: oestradiol prolongs and testosterone sh | [ABSTRACT] tes (tdp). qtc interval duration is influenced by sex hormones: oestradiol prolongs and testosterone shortens qtc. drugs used in the treatment of breast cancer have divergent effects on hormonal status. we performed a disproportionality analysis using the european database of suspected adverse || [ABSTRACT] nary risk evaluation (score) assessment, based on sex, age, smoking habits, systolic blood pressure, and total cholesterol levels. the 60-month cumulative incidence rate of aoes excluding hypertension was 25.7%. hypertension was reported in 14.1% of patients. the median time of exposure to ponatinib was 28 months (range, 3-69 months). patients with a high to...[truncated]",3.0,"irin at 325 mg/day and coumadin
+* female patients must not be pregnant or breastfeeding; due to the potential teratogeni || x uln
+* for females of childbearing potential, a negative pregnancy test must be documented prior to randomization
+* femal || difficulties
+
+other
+
+* not pregnant or nursing
+* negative pregnancy test
+* fertile patients must use effective contracepti",68.8,S2_PubMed_OR_NCT,Moderate
+35306832,24.0,0.21,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,16.7,S2_PubMed_OR_NCT,Weak
+35708012,13.0,0.62,2.0,5.0,1.0,0.0,0.0,1.0,"[ABSTRACT] clusion, and to define its associations with age, gender, race, and other potential risk factors among participants in the cardiovascular health study (chs). the chs is a multicenter, longitudinal cohort study of cardiovascular disease risk factors, morbidity, and mortality among free-living adults of more than 65 years of age. as part of an ancillary investigation, participants in the forsyth county cohort of the chs were invited to undergo renal duplex sonography (rds) to define the presence or absence of rvd. rvd was defined as stenosis with a focal renal artery peak systolic velocity exceeding 1.8 m/s in the main renal artery and defined as occlusion when an imaged renal artery lacked a doppler signal. demographic and atherosclerotic risk factor data were gathered as part of...[truncated]",0.0,,38.5,S2_PubMed_OR_NCT,Weak
+35753858,11.0,1.18,3.0,8.0,0.0,0.0,0.0,0.0,,1.0,"t fulfills all the following criteria:
+
+  * has a negative pregnancy test at screening and on the day of the first dose (da",72.7,S2_PubMed_OR_NCT,Moderate
+35862198,22.0,1.0,4.0,13.0,1.0,0.0,0.0,1.0,"[ABSTRACT] = .02), which persisted after adjustment for age, sex, baseline step counts, and functional class (model estimated difference, 1,250 steps; p = .03). the intervention arm took a higher average number of steps on all days between days 9 and 84 (p < .05, all days). there was no difference in week 12 six-minute walk distance. analysis of secondary end points suggested improvements in",0.0,,59.1,S2_PubMed_OR_NCT,Moderate
+35924775,3.0,1.0,3.0,1.0,0.0,0.0,0.0,0.0,,0.0,,33.3,S2_PubMed_OR_NCT,Moderate
+36043414,10.0,0.4,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,30.0,S2_PubMed_OR_NCT,Weak
+36055903,6.0,0.33,1.0,2.0,0.0,0.0,0.0,0.0,,0.0,,33.3,S2_PubMed_OR_NCT,Weak
+36120864,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration
+36252095,34.0,0.82,3.0,17.0,0.0,0.0,0.0,0.0,,2.0,"ears
+* women of child-bearing potential without a negative pregnancy test
+* inclusion in another study
+* heart rate above 7 || e subjects of child-bearing potential must have a negative pregnancy test done within 7 days prior to the index procedure p",50.0,S2_PubMed_OR_NCT,Weak
+36307329,14.0,0.79,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,64.3,S2_PubMed_OR_NCT,Weak
+36436841,16.0,1.19,3.0,9.0,0.0,0.0,0.0,0.0,,0.0,,56.2,S2_PubMed_OR_NCT,Moderate
+36475715,76.0,0.43,5.0,18.0,2.0,0.0,2.0,0.0,,0.0,,23.7,S2_PubMed_OR_NCT,Weak
+36503287,55.0,1.04,6.0,36.0,5.0,1.0,0.0,5.0,"[ABSTRACT] nd tcfa+pb ≥70%+mla ≤4 mm2 (p=0.003). by age- and sex-adjusted logistic regression analysis, frailty was found to be strongly and independent || [ABSTRACT] cute coronary syndrome. enrollment was stratified by sex (women/men ratio 2:1) and age (55-64, 65-74, 75-8 | [ABSTRACT] e coronary syndrome. enrollment was stratified by sex (women/men ratio 2:1) and age (55-64, 65-74, 75-85, and >85 years). women were administered menopause questionnaires during admission. an independent core lab quantified coronary artery disease extent using the gensini score, which classifies both significant (>50%) and nonsignificant lesions. linear correlation was used to appraise the association between the gensini score and menopausal age. we enrolled 675 patients, 249 men and 426 women (mean age 74 y...[truncated]",2.0,"study
+20. for women of childbearing potential no negative pregnancy test and no agree to use reliable method of birth cont || * females of child-bearing potential must have a negative pregnancy test at enrollment and be willing to use 2 methods of",65.5,S2_PubMed_OR_NCT,Moderate
+36529563,5.0,1.0,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,80.0,S2_PubMed_OR_NCT,Moderate
+36621810,10.0,1.3,3.0,7.0,0.0,0.0,0.0,0.0,,0.0,,70.0,S2_PubMed_OR_NCT,Moderate
+36633003,24.0,0.46,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,37.5,S2_PubMed_OR_NCT,Weak
+36912134,69.0,0.65,3.0,28.0,2.0,0.0,0.0,2.0,"[ABSTRACT] attack, vascular disease, age 65-74 years, female sex) score greater than or equal to 4 or greater than or equal to 2 with risk factors for poaf, no history of preoperative af, and poaf lasting less than 24 hours during hospitalization were enrolled. the intervention group underwent continuous cardiac rhythm monitoring with wearable, patch-based monitors for 30 days after randomization. monitoring was not mandated in the usual care group within 30 days after randomization. the primary outcome was cumulative af and/or atrial flutter lasting 6 minutes or longer detected by continuous cardiac rhythm monitoring or by a 12-lead electrocardiogram within 30 days of randomization. prespecified secondary outcomes included cumulative af lasting 6 hours or longer and 24 hours or longer wit...[truncated]",0.0,,40.6,S2_PubMed_OR_NCT,Weak
+37092336,30.0,0.6,2.0,10.0,0.0,0.0,0.0,0.0,,0.0,,33.3,S2_PubMed_OR_NCT,Weak
+37288568,46.0,0.61,2.0,20.0,1.0,0.0,0.0,1.0,"[ABSTRACT] e of birth, date of admission, date of discharge, sex, and center. likely matches were defined as an exact match for all variables except ±1 day for one of the date variables. of 45,830 sts-chs records, 87.4% matched to phis using the exact match criteria and 90.3% using the exact or likely match criteria. validation in a subset of patients revealed that 100% of exact and likely matches were true matches. this analysis demonstrates that indirect identifiers can be use",1.0,* females of child-bearing potential must have a negative pregnancy test because of the potentially dangerous effects on t,43.5,S2_PubMed_OR_NCT,Weak
+37721605,3.0,1.33,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,100.0,S2_PubMed_OR_NCT,Moderate
+37795631,2.0,1.0,2.0,1.0,0.0,0.0,0.0,0.0,,1.0,"of childbearing potential are required to have a negative pregnancy test within 7 days prior to device procedure
+* partici",50.0,S2_PubMed_OR_NCT,Moderate
+38047353,28.0,0.71,2.0,15.0,0.0,0.0,0.0,0.0,,2.0,"of childbearing potential are required to have a negative pregnancy test within 7 days prior to device procedure
+* partici || of childbearing potential are required to have a negative pregnancy test within 7 days prior to device procedure
+* partici",53.6,S2_PubMed_OR_NCT,Weak
+38314551,11.0,0.45,2.0,3.0,0.0,0.0,0.0,0.0,,1.0,"r exclusion should be the use of hcq in the first pregnancy in which chb occurred. while one could argue that in these mothers hcq was not effective and perhaps will not be again, this assumption remains speculative and thus prior absence of efficacy of hcq will not constitute an exclusion criteria. recurrence of advanced heart block prol",27.3,S2_PubMed_OR_NCT,Weak
+38406869,18.0,0.39,2.0,6.0,0.0,0.0,0.0,0.0,,0.0,,33.3,S2_PubMed_OR_NCT,Weak
+38415358,12.0,0.83,2.0,8.0,0.0,0.0,0.0,0.0,,0.0,,66.7,S2_PubMed_OR_NCT,Weak
+38567497,17.0,0.71,2.0,11.0,0.0,0.0,0.0,0.0,,0.0,,64.7,S2_PubMed_OR_NCT,Weak
+38634276,8.0,0.25,2.0,1.0,0.0,0.0,0.0,0.0,,0.0,,12.5,S2_PubMed_OR_NCT,Weak
+38736080,8.0,0.5,2.0,2.0,1.0,0.0,0.0,0.0,,0.0,,25.0,S2_PubMed_OR_NCT,Weak
+38779844,7.0,0.57,2.0,3.0,0.0,0.0,0.0,0.0,,0.0,,42.9,S2_PubMed_OR_NCT,Weak
+38804130,8.0,0.75,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,50.0,S2_PubMed_OR_NCT,Weak
+39101202,26.0,1.46,2.0,22.0,0.0,0.0,0.0,0.0,,4.0,"pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p || pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p || pregnant, nursing or planning to become pregnant (negative pregnancy test required, documented within a maximum of 7 days p",84.6,S2_PubMed_OR_NCT,Moderate
+39315436,11.0,0.64,4.0,4.0,1.0,0.0,0.0,1.0,"[REGISTRY] percentage estimates to dxa references classified by sex evaluation of the accuracy of a computer vision-b | [ABSTRACT] 134 healthy adults ranging in age (21-76 years), sex (61.2% women), race (60.4% white; 23.9% black), and body mass index (bmi, 18.5-51.6 kg/m<sup>2</sup>) were evaluated at two clinical sites (n = 64 at mgh, n = 70 at pbrc). each participant had %bf measured with vbc, three consumer and two professional bioimpedance analysis (bia) systems. the pbrc participants also had air displacement plethysmography (adp) measured. %bf measured by dual-energy x-ray absorptiometry (dxa) was set as the reference against which all other %bf measurements were compared. to test our scientific hypothesis we run multiple, pair-wise wilcoxon signed rank tests where we compare each c...[truncated]",0.0,,36.4,S2_PubMed_OR_NCT,Weak
+39429201,139.0,0.93,6.0,77.0,6.0,2.0,0.0,4.0,"[ABSTRACT] ation scheme with block sizes of four, stratified by sex and site. allocation was concealed from all but t | [ABSTRACT] on scheme with block sizes of four, stratified by sex and site. allocation was concealed from all but the pharmacists and statisticians. participants were assigned in a 1:1 ratio to low-dose (10 mg/kg per day) or moderate-dose (20 mg/kg per day) oral hydroxyurea taken once daily with monthly clinical evaluation and laboratory monitoring. the primary outcome was initial stroke or transient ischaemic attack, centrally adjudicated. the secondary outcome was all-cause hospitalisation. we used the intention-to-treat population for data analysis. the trial was stopped early for futility after a || [ABSTRACT] = 200) for 12 weeks. randomization was stratified by sex an...[truncated]",5.0,"* females of child-bearing potential must have a negative pregnancy test at enrollment
+* persons who are currently taking || of childbearing potential are required to have a negative pregnancy test prior to enrollment)
+* active enrollment in other || myocardial infarction
+* female patient is either not of childbearing potential, defined as postmenopausal for at least one year",55.4,S2_PubMed_OR_NCT,Weak
+39676661,14.0,0.86,2.0,9.0,0.0,0.0,0.0,0.0,,0.0,,64.3,S2_PubMed_OR_NCT,Weak
+39782908,6.0,0.5,3.0,1.0,1.0,0.0,0.0,1.0,[ABSTRACT] eart diseases (chd) with that of age-adjusted and gender-adjusted controls. we also intended to identify clinical characteristics associated with maximum oxygen uptake (vo<sub>2max</sub>) in this population. we included in a cross-sectional multicentre study a total of 798 children (496 chd and 302 controls) who underwent a complete cardiopulmonary exercise test (cpet). the association of clinical characteristics with vo<sub>2max</sub> was studied using a multivariate analysis. mean vo<sub>2max</sub> in the chd group and cont,0.0,,16.7,S2_PubMed_OR_NCT,Weak
+40371484,14.0,1.07,4.0,9.0,1.0,0.0,0.0,1.0,"[ABSTRACT] rankin scale. prespecified subgroups were defined according to sex, age, initial cardiac rhythm, time to return of s",0.0,,64.3,S2_PubMed_OR_NCT,Moderate
+40373524,20.0,0.95,4.0,14.0,0.0,0.0,0.0,0.0,,0.0,,70.0,S2_PubMed_OR_NCT,Weak
+40526054,14.0,0.79,2.0,7.0,0.0,0.0,0.0,0.0,,0.0,,50.0,S2_PubMed_OR_NCT,Weak
+40966736,7.0,0.86,2.0,4.0,0.0,0.0,0.0,0.0,,0.0,,57.1,S2_PubMed_OR_NCT,Weak
+41084821,28.0,1.0,4.0,14.0,4.0,2.0,0.0,4.0,"[ABSTRACT] pacity between women referred to supervised mixed-sex, supervised women-only, or home-based cardiac rehabilitation (cr). cardiac rehabilitation for heart event recovery (cr4her) was a single-blind, 3 parallel-arm, pragmatic randomized controlled trial. the study took place between november 1, 2009, and july 31, 2013. low-risk patients with coronary artery disease were recruited from 6 hospitals in ontario, canada. consenting participants completed a preprogram survey, and clinical data were extracted from charts. participants were referred to cr at 1 of 3 sites. after intake assessment, including a graded exercise stress test, eligible patients were randomized to supervised mixed-sex, supervised women-only, or home-based cr. six months later, cr adherence and exit assessment dat...[truncated]",0.0,,50.0,S2_PubMed_OR_NCT,Moderate
+41122889,110.0,0.29,2.0,22.0,0.0,0.0,0.0,0.0,,0.0,,20.0,S2_PubMed_OR_NCT,Weak
+41164866,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,,0.0,S2_PubMed_OR_NCT,Inadequate - No Sex Consideration

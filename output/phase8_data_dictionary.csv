@@ -1,0 +1,481 @@
+column_name,display_name,description,data_type,example_values,source,search_terms,sources_searched,calculation_logic,used_in_scoring
+guideline_pmid,Guideline PMID,PubMed ID of clinical practice guideline,string,31857196,Phase 1: PubMed query,N/A - Direct field,N/A,Direct from PubMed,No
+ref_pmid,Reference PMID,PubMed ID of cited reference,string,19679246,Phase 2: CrossRef citations → PubMed match,N/A - Direct field,N/A,Direct from CrossRef/PubMed match,No
+ref_primary_nct_number,Primary NCT Number,Primary ClinicalTrials.gov registry number,string,NCT00000001,Phase 3: NCT extraction from PubMed,N/A - Regex extraction,PubMed structured fields,Regex pattern: NCT\d{8},No
+ref_is_clinical_trial_pt_type,Is Clinical Trial (PubMed PT),PubMed publication type indicates clinical trial,boolean,True/False,Phase 3: PubMed PublicationType field,N/A - Metadata field,PubMed PublicationType,"True if PublicationType contains ""Clinical Trial""",No (used for scenario definitions)
+ref_title_mentions_sex,Title Mentions Sex/Gender,Reference title mentions sex or gender terms,boolean,True/False,Phase 7: Text analysis of ref_title,"sex, gender, male, female, men, women, man, woman (case-insensitive, word boundaries)",ref_title only,OR logic: True if ANY term found as whole word in title,No (informational only)
+ref_abstract_mentions_sex,Abstract Mentions Sex/Gender,Reference abstract mentions sex or gender terms,boolean,True/False,Phase 7: Text analysis of ref_abstract,"sex, gender, male, female, men, women, man, woman (case-insensitive, word boundaries)",ref_abstract only,OR logic: True if ANY term found as whole word in abstract,No (informational only)
+nct_registry_mentions_sex,Registry Mentions Sex/Gender,Registry fields mention sex or gender terms,boolean,True/False,Phase 7: Text analysis of registry fields,"sex, gender, male, female, men, women, man, woman (case-insensitive, word boundaries)","nct_eligibility_criteria, nct_official_title, nct_brief_title, nct_primary_outcomes, nct_secondary_outcomes, nct_intervention_names",OR logic: True if ANY term found in ANY registry field,No (informational only)
+any_source_mentions_sex_differences,Mentions Sex Differences,"Any source mentions sex/gender differences, disparities, or sex-specific patterns",boolean,True/False,Phase 7: Text analysis across all sources,"sex-specific, gender-specific, sex-based, gender-based, sex difference(s), gender difference(s), sex disparity/disparities, gender disparity/disparities, between men and women, between women and men, between males and females, between females and males, by sex, according to sex, between sexes, sex-disaggregated, sex-stratified, gender-stratified, sex as variable, gender as variable, sex analysis, gender analysis (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,"OR logic across 18 patterns. Searches title, abstract, and all registry fields. Also elevated to True if sex_interaction found. Captures evidence snippets showing context (±50 chars).",Yes - HIGH VALUE (2 points)
+any_source_mentions_sex_stratification,Mentions Sex Stratification,Any source mentions sex-stratified or sex-disaggregated analysis,boolean,True/False,Phase 7: Text analysis across all sources,"stratified by sex/gender, sex-stratified, gender-stratified, stratification by sex/gender, analyzed separately for sex/gender/men and women, separate analyses for sex/gender/men and women (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 5 patterns. Searches all text sources.,Yes - HIGH VALUE (2 points)
+any_source_mentions_sex_subgroup,Mentions Sex Subgroup Analysis,Any source mentions sex/gender subgroup analysis,boolean,True/False,Phase 7: Text analysis across all sources,"subgroup analysis [involving] sex/gender/men/women, sex/gender/men/women subgroup analysis, subgroup by sex/gender, sex subgroup, gender subgroup, interaction [with] sex/gender (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 5 patterns. Searches all text sources. Also elevates sex_differences flag if not already True.,Yes - HIGH VALUE (2 points)
+any_source_pregnancy_related,Mentions Pregnancy,"Any source mentions pregnancy, lactation, or maternal health",boolean,True/False,Phase 7: Text analysis across all sources,"pregnant, pregnancy, gestational, lactating, breastfeeding, postpartum, antenatal, prenatal, perinatal, obstetric (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 10 patterns. Searches all text sources.,Yes - MEDIUM VALUE (1 point)
+any_source_menopause_related,Mentions Menopause,Any source mentions menopause or related conditions,boolean,True/False,Phase 7: Text analysis across all sources,"menopause*, postmenopause*, perimenopause*, hot flash, hormone replacement, climacteric (case-insensitive, * = any ending)",ref_title + ref_abstract + nct_registry_fields,OR logic across 6 patterns. Searches all text sources.,Yes - MEDIUM VALUE (1 point)
+any_source_sex_hormone_related,Mentions Sex Hormones,"Any source specifically mentions sex hormones (estrogen, testosterone, progesterone)",boolean,True/False,Phase 7: Text analysis across all sources,"estrogen, progesterone, testosterone, ovarian hormone, sex hormone (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,Subset of hormonal_related. OR logic across 5 specific sex hormone patterns.,Yes - MEDIUM VALUE (1 point)
+nct_sex,NCT Sex Eligibility (Raw),Sex eligibility as stated in ClinicalTrials.gov,string,"All, Female, Male",Phase 4: ClinicalTrials.gov API,N/A - Direct field,ClinicalTrials.gov EligibilityModule.sex,Direct from registry API response,No (used to derive nct_sex_includes_women)
+nct_sex_includes_women,Trial Includes Women,Registry indicates women can participate,boolean,True/False,Phase 4: Derived from nct_sex,N/A - Derived field,nct_sex field,"True if nct_sex == ""All"" OR nct_sex == ""Female""",Yes - MEDIUM VALUE (1 point)
+nct_sex_women_only,Women-Only Trial,Registry indicates only women can participate,boolean,True/False,Phase 4: Derived from nct_sex,N/A - Derived field,nct_sex field,"True if nct_sex == ""Female""",No (informational only)
+any_source_hormonal_related,Mentions Hormonal (General),Any source mentions hormones generally (includes but not limited to sex hormones),boolean,True/False,Phase 7: Text analysis across all sources,"hormonal, estrogen, progesterone, testosterone, hormone level, endocrine, oral contraceptive, hormone replacement, hormonal therapy, menstrual cycle, ovarian hormone (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 11 patterns. Parent category that includes sex_hormone_related and menstrual_cycle.,No (informational; sex_hormone_related scores instead)
+any_source_menstrual_cycle,Mentions Menstrual Cycle,Any source mentions menstrual cycle or cycle phases,boolean,True/False,Phase 7: Text analysis across all sources,"menstrual cycle, menstruation, menses, cycle phase, follicular phase, luteal phase, ovulation (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,Subset of hormonal_related. OR logic across 7 cycle-specific patterns.,No (informational only)
+any_source_contraception_required,Contraception Required,Registry or study text mentions contraception requirements,boolean,True/False,Phase 7: Text analysis across all sources,"contraception, contraceptive, birth control, effective contraception, two forms contraception, contraception required, use of contraception, childbearing potential contraception (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 8 patterns.,No (informational only)
+any_source_reproductive_health,Mentions Reproductive Health,"Any source mentions reproductive health, fertility, or related terms",boolean,True/False,Phase 7: Text analysis across all sources,"reproductive, reproduction, fertility, infertility, infertile, ovary/ovaries, ovarian, ovulation, conception (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 9 patterns.,No (informational only)
+any_source_maternal_offspring,Mentions Maternal/Offspring,Any source mentions maternal health or offspring outcomes,boolean,True/False,Phase 7: Text analysis across all sources,"maternal, mother(s), offspring, baby/babies, fetus/fetal, foetus/foetal (British), infant(s), newborn(s), neonatal (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 9 patterns with singular/plural variants.,No (informational only)
+any_source_lactation_breast,Mentions Lactation/Breast,"Any source mentions breastfeeding, lactation, or breast-related terms",boolean,True/False,Phase 7: Text analysis across all sources,"breast(s), lactation, lactating, breastfeed(ing), nursing mothers (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 5 patterns.,No (informational only)
+any_source_womens_conditions,Mentions Women's Health Conditions,"Any source mentions women-specific conditions (PCOS, Turner syndrome, etc.)",boolean,True/False,Phase 7: Text analysis across all sources,"PCOS, polycystic ovary/ovaries/ovarian, female athlete triad, relative energy deficiency in sport, RED-S, Turner syndrome/Turners/Turner's syndrome (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 6 condition patterns.,No (informational only)
+any_source_gender_identity,Mentions Gender Identity,"Any source mentions gender identity, transgender, or LGBTQ+ topics",boolean,True/False,Phase 7: Text analysis across all sources,"LGBTQ/LGBTQ+, LGBT, transgender/transgendered, gender dysphoria, gender identity/identities, gender minority/minorities, gender-diverse/gender diverse, non-binary/nonbinary/non binary (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 8 patterns.,No (informational only)
+any_source_excludes_pregnant_women,Excludes Pregnant Women,Study explicitly excludes pregnant women or requires negative pregnancy test,boolean,True/False,Phase 7: Text analysis across all sources,"exclude pregnant, pregnancy exclusion, must not be pregnant, cannot be pregnant, negative pregnancy test (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 5 exclusion patterns. Captures evidence snippets.,No (informational only)
+any_source_excludes_childbearing_potential,Excludes Childbearing Potential,Study excludes women of childbearing potential,boolean,True/False,Phase 7: Text analysis across all sources,"exclude women childbearing potential, women childbearing potential excluded, not of childbearing potential (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 3 exclusion patterns. Captures evidence snippets.,No (informational only)
+any_source_mentions_sex_interaction,Mentions Sex-Treatment Interaction,Any source mentions interaction between sex/gender and treatment,boolean,True/False,Phase 7: Text analysis across all sources,"sex interaction, gender interaction, interaction sex, interaction gender, interaction between sex (case-insensitive)",ref_title + ref_abstract + nct_registry_fields,OR logic across 5 patterns. Also elevates sex_differences flag to True.,No (informational; elevates sex_differences instead)
+sex_consideration_score,Sex Consideration Score,Composite score (0-10) quantifying degree of sex consideration,integer (0-10),"0, 2, 5, 8",Phase 8: Calculated from boolean flags,N/A - Composite metric,N/A - Uses flags from all sources,"SCORING FORMULA (Maximum 10 points):
+
+HIGH VALUE (2 points each, max 6):
+  +2 if any_source_mentions_sex_differences == True
+  +2 if any_source_mentions_sex_stratification == True
+  +2 if any_source_mentions_sex_subgroup == True
+
+MEDIUM VALUE - Biological (1 point each, max 3):
+  +1 if any_source_pregnancy_related == True
+  +1 if any_source_menopause_related == True
+  +1 if any_source_sex_hormone_related == True
+
+MEDIUM VALUE - Inclusivity (1 point, max 1):
+  +1 if nct_sex_includes_women == True
+
+TOTAL: Sum of above, capped at 10
+
+RATIONALE:
+- Direct evidence of sex analysis (differences, stratification, subgroups) weighted highest (2 pts) because they show intentional consideration
+- Biological factors (pregnancy, menopause, sex hormones) weighted medium (1 pt) because they show awareness of sex-specific physiology
+- Trial inclusivity (includes women) receives credit (1 pt) as baseline requirement
+- Score reflects both QUALITY (type of analysis) and PRESENCE (mentions exist)
+- 10-point scale allows nuanced differentiation between guidelines",N/A (this IS the primary score)
+sex_evidence_snippets,Sex Evidence Snippets,Text snippets showing sex consideration context (citation-level: captured during matching; guideline-level: aggregated from up to 5 citations),"string (pipe-separated at citation-level, double-pipe separated at guideline-level)",[TITLE] sex-specific differences || [ABSTRACT] stratified by gender,Phase 7: Captured during pattern matching (citation-level); Phase 8: Aggregated (guideline-level),N/A - Captured context,"ref_title, ref_abstract, registry fields","CITATION-LEVEL (in UNIVERSE file):
+When SEX_DIFF_PATTERNS match, capture ±30-50 characters of context. Label with source [TITLE]/[ABSTRACT]/[REGISTRY]. Concatenate with pipe separator (|).
+
+GUIDELINE-LEVEL (in guideline statistics):
+Aggregate snippets from up to 5 citations per guideline. Separate with double-pipe (||). Truncate total length at 800 characters if needed.
+
+PURPOSE:
+- Citation-level: Evidence trail for individual citation scores
+- Guideline-level: Representative examples of how guideline considers sex
+
+INTERPRETATION:
+- Null/empty = No sex consideration found in text
+- Present = Shows actual language used in papers",No (evidence/audit trail)
+exclusion_evidence_snippets,Exclusion Evidence Snippets,Text snippets showing exclusion of women (citation-level: captured during matching; guideline-level: aggregated from up to 3 citations),"string (pipe-separated at citation-level, double-pipe separated at guideline-level)",exclude pregnant women || negative pregnancy test required,Phase 7: Captured during exclusion pattern matching (citation-level); Phase 8: Aggregated (guideline-level),N/A - Captured context,"ref_title, ref_abstract, registry fields","CITATION-LEVEL (in UNIVERSE file):
+When PREG_EXCL_PATTERNS or CBP_EXCL_PATTERNS match, capture ±50 characters. Concatenate with pipe separator (|).
+
+GUIDELINE-LEVEL (in guideline statistics):
+Aggregate snippets from up to 3 citations per guideline. Separate with double-pipe (||). Truncate total length at 500 characters if needed.
+
+PURPOSE:
+- Shows barriers to women's participation in trials
+- Documents exclusionary language
+- Identifies systemic exclusion patterns
+
+INTERPRETATION:
+- Null/empty = No explicit exclusion language found
+- Present = Shows actual exclusion criteria from trial protocols",No (evidence/audit trail)
+count_type,Count Type,Whether this scenario counts citations or unique trials,string,"citation, trial",Phase 8: Scenario configuration,N/A - Metadata,N/A,"Set in scenario definition:
+- ""citation"" = One row per guideline-reference pair (UNIVERSE-based scenarios). Use this for citation patterns and guideline behavior analysis.
+- ""trial"" = One row per unique NCT (UNIQUE_TRIALS scenario). Use this for trial characteristics analysis.
+
+INTERPRETATION:
+- Citation-level scenarios (S1, S2, S4, S5, S6): Can analyze ""What do guidelines cite?"" Same trial cited by multiple guidelines = multiple rows.
+- Trial-level scenario (S3): Can analyze ""What are characteristics of unique trials?"" Each trial appears once regardless of how many times cited.",No (metadata for interpretation)
+can_verify_sex,Can Verify Sex Inclusion,Whether this scenario has data sources that allow verification of sex eligibility for all/some/no citations,string,"True, False, partial",Phase 8: Scenario configuration,N/A - Metadata,N/A,"Set based on data availability for citations in this scenario:
+
+True = ALL citations in this scenario have ClinicalTrials.gov (NCT) registry data
+  - Can definitively check: ""Does this trial permit women to enroll?""
+  - Source: nct_sex field from registry (values: ""All"", ""Female"", ""Male"")
+  - Calculation: nct_sex_includes_women = True if nct_sex IN [""All"", ""Female""]
+  - Scenarios: S3 (Unique Trials), S4 (Registry-Verified), S5 (All NCTs), S6 (High-Quality)
+
+False = NO citations have NCT registry data  
+  - Cannot verify sex eligibility (no source of sex inclusion data)
+  - Registry field nct_sex is absent/null for all citations
+  - Scenarios: S1 (PubMed PT only - no requirement for NCT data)
+
+partial = SOME citations have NCT data, SOME do not
+  - Can verify sex inclusion for subset of citations only
+  - Example: If 40% of citations have NCT → can verify 40%, cannot verify 60%
+  - Scenarios: S2 (PubMed OR NCT - includes both registered and non-registered trials)
+
+IMPORTANT DISTINCTION:
+- can_verify_sex = ""Do we have data to check?"" (data availability)
+- nct_sex_includes_women = ""Does trial permit women?"" (actual answer for specific trial)
+
+EXAMPLE:
+Scenario S4 (Registry-Verified):
+  - can_verify_sex = True (100% of citations have NCT data)
+  - We can check all 630 citations
+  - Results might be: 
+    * 580 trials: nct_sex_includes_women = True (92%)
+    * 50 trials: nct_sex_includes_women = False (8% male-only)
+
+Scenario S1 (PubMed PT):
+  - can_verify_sex = False (0% have NCT data)
+  - Cannot determine if any trials include women
+  - nct_sex_includes_women = NaN for all (unknown)
+
+USE FOR:
+- Determining which scenarios support claims about trial inclusivity
+- Understanding data limitations of each scenario
+- Selecting appropriate scenario for research questions about sex inclusion",No (metadata for interpretation)
+total_citations,Total Citations,Total number of citations (references) in this guideline,integer,"150, 89, 203",Phase 8: Aggregated from citation-level data,N/A - Aggregated count,N/A,"COUNT of rows where guideline_pmid matches, within the scenario definition filter",No (denominator for percentages)
+trial_citations,Trial Citations,Number of citations that are clinical trials (based on scenario definition),integer,"45, 12, 78",Phase 8: Aggregated from citation-level data,N/A - Aggregated count,N/A,"COUNT of rows where guideline_pmid matches AND row meets scenario trial definition. Varies by scenario (S1 uses PT type, S2 uses PT OR NCT, etc.)",No (descriptive statistic)
+citations_with_sex,Citations Mentioning Sex,Number of citations with any sex consideration (score > 0),integer,"23, 8, 67",Phase 8: Aggregated from citation-level data,N/A - Aggregated count,N/A,COUNT of rows where guideline_pmid matches AND sex_consideration_score > 0,No (numerator for pct_citing_sex)
+pct_citing_sex (or mentioning_sex_pct),Percent Citing Sex,Percentage of citations that mention sex considerations,float (percentage),"15.3%, 8.9%, 32.0%",Phase 8: Calculated from guideline aggregates,N/A - Calculated metric,N/A,"(citations_with_sex / total_citations) × 100
+
+INTERPRETATION:
+- <5%: Inadequate sex consideration
+- 5-10%: Weak sex consideration  
+- 10-20%: Moderate sex consideration
+- ≥20%: Strong sex consideration (when combined with avg_sex_score ≥2)
+
+USE FOR:
+- Assessing breadth of sex consideration across guideline
+- Categorizing guideline performance",Yes (used in guideline categorization)
+avg_sex_score (or avg_sex_consideration_score),Average Sex Consideration Score,Mean sex consideration score across all citations in guideline,float (0-10),"0.5, 2.3, 4.8",Phase 8: Calculated from citation-level scores,N/A - Calculated metric,N/A,"MEAN(sex_consideration_score) for all citations in guideline
+
+INTERPRETATION:
+- 0: No sex consideration in any citations
+- 0.1-1.0: Minimal sex consideration (mostly basic mentions)
+- 1.1-2.0: Weak sex consideration (some biological factors)
+- 2.1-4.0: Moderate sex consideration (mix of analysis types)
+- 4.1+: Strong sex consideration (systematic sex analysis)
+
+USE FOR:
+- Assessing quality/depth of sex consideration
+- Categorizing guideline performance (combined with pct_citing_sex)",Yes (used in guideline categorization)
+cites_trials_with_women,Citations to Trials Including Women,Number of trial citations where nct_sex_includes_women = True,integer,"38, 11, 72",Phase 8: Aggregated from citation-level data,N/A - Aggregated count,N/A,COUNT of rows where guideline_pmid matches AND nct_sex_includes_women = True. Only calculable for scenarios where can_verify_sex = True.,No (numerator for includes_women_pct)
+pct_nct_with_women (or includes_women_pct),Percent Trials Including Women,"Among trials with verifiable NCT data, what percentage permit women to enroll",float (percentage),"84.4%, 91.7%, 100%",Phase 8: Calculated from guideline aggregates,N/A - Calculated metric,N/A,"(cites_trials_with_women / nct_citations) × 100
+
+WHERE:
+  cites_trials_with_women = COUNT where nct_sex_includes_women == True
+  nct_citations = COUNT where ref_primary_nct_number is not null
+
+DENOMINATOR (nct_citations):
+  - Only citations with NCT numbers (verifiable trials)
+  - Excludes citations without registry data
+
+NUMERATOR (cites_trials_with_women):
+  - Subset where nct_sex == ""All"" OR nct_sex == ""Female""
+  - True = Women CAN enroll
+  - False = Women CANNOT enroll (Male only)
+
+Only calculable for scenarios where can_verify_sex = True or partial.
+Returns NaN if guideline has 0 NCT citations.
+
+INTERPRETATION:
+- 100%: All verifiable trials in this guideline permit women
+- 0%: All verifiable trials exclude women (male-only studies)
+- 84%: Most trials include women, but 16% are male-only
+
+WHAT THIS DOES NOT TELL YOU:
+- Does NOT tell you if women were actually enrolled (only if they COULD be)
+- Does NOT tell you % of participants who were women (enrollment data)
+- Does NOT cover trials without NCT numbers (those are excluded from calculation)
+
+EXAMPLE:
+Guideline A has:
+  - 100 total citations
+  - 30 have NCT numbers (verifiable)
+  - 27 of those 30: nct_sex = ""All"" (include women)
+  - 3 of those 30: nct_sex = ""Male"" (exclude women)
+
+Result: includes_women_pct = 27/30 × 100 = 90%
+
+Interpretation: Of the 30 trials we can verify, 90% permit women to participate.
+Note: The other 70 citations (without NCT) are not included in this percentage.
+
+USE FOR:
+- Assessing whether cited trials represent women in eligibility
+- Identifying guidelines relying on male-only trials
+- Understanding trial design inclusivity",No (but used in recommendations)
+max_sex_score,Maximum Sex Score,Highest sex consideration score among citations in guideline,integer (0-10),"6, 8, 10",Phase 8: Calculated from citation-level data,N/A - Calculated metric,N/A,"MAX(sex_consideration_score) for all citations in guideline
+
+INTERPRETATION:
+- Shows best-case sex consideration within guideline
+- If max_sex_score is high but avg_sex_score is low → guideline has few excellent citations but mostly weak ones
+- If max_sex_score ≈ avg_sex_score → guideline is consistently good (or consistently poor)
+
+USE FOR:
+- Understanding variability in sex consideration within guidelines
+- Identifying guidelines with potential for improvement (high max, low avg)",No (informational only)
+category,Guideline Performance Category,Classification of guideline based on sex consideration performance,string,"Strong, Moderate, Weak, Inadequate",Phase 9: Calculated from guideline metrics,N/A - Derived category,N/A,"Based on pct_citing_sex and avg_sex_score:
+
+Strong: 
+  - pct_citing_sex ≥ 20% AND avg_sex_score ≥ 2.0
+  - Systematic sex consideration across many citations
+
+Moderate:
+  - pct_citing_sex ≥ 10% AND avg_sex_score ≥ 1.0
+  - Notable sex consideration but not systematic
+
+Weak:
+  - pct_citing_sex ≥ 5% OR avg_sex_score ≥ 0.5
+  - Minimal sex consideration present
+
+Inadequate:
+  - pct_citing_sex < 5% AND avg_sex_score < 0.5
+  - Little to no sex consideration
+
+NOTE: Exact thresholds may vary by scenario. See categorize_guidelines() function for scenario-specific logic.
+
+USE FOR:
+- Prioritizing guidelines for improvement
+- Identifying exemplars (Strong) and laggards (Inadequate)",No (output of scoring process)
+DEDUPLICATION_LEVEL_1,Citations Within Guideline,How duplicate citations are handled within a single guideline,Methodology,N/A,Phase 2: Deduplication during citation extraction,N/A,N/A,"WITHIN GUIDELINE: Deduplicated (unique only)
+
+If Guideline A cites the same reference twice:
+  - PMC123 appears 2 times → Keep 1 occurrence
+
+Result: Each guideline has UNIQUE list of references (no duplicates within one guideline)
+
+DEDUPLICATION KEY: (guideline_pmid, ref_pmid)
+METHOD: drop_duplicates(subset=['guideline_pmid', 'ref_pmid'], keep='first')
+WHEN: Phase 2 Step 3 (CrossRef citation processing)
+
+EXAMPLE:
+Guideline 12345 bibliography has:
+  1. Smith 2020 (PMID 100)
+  2. Jones 2019 (PMID 200)  
+  3. Smith 2020 (PMID 100)  ← duplicate
+
+After deduplication:
+  - Citation 1: guideline_pmid=12345, ref_pmid=100
+  - Citation 2: guideline_pmid=12345, ref_pmid=200
+  Total: 2 citations for guideline 12345",N/A - Methodology
+DEDUPLICATION_LEVEL_2,Citations Across Guidelines,How duplicate citations are handled across multiple guidelines,Methodology,N/A,Phase 2: All phases maintain citation-guideline pairs,N/A,N/A,"ACROSS GUIDELINES: NOT Deduplicated (same reference can appear multiple times)
+
+If multiple guidelines cite the same reference:
+  - Guideline A cites PMC123 → 1 row (A, PMC123)
+  - Guideline B cites PMC123 → 1 row (B, PMC123)
+  - Guideline C cites PMC123 → 1 row (C, PMC123)
+
+Result: Same reference appears 3 times in dataset (once per guideline)
+
+WHY: Preserves citation relationships for guideline-level analysis
+- Can ask: ""Which guidelines cite this important trial?""
+- Can ask: ""How often is this trial cited across guidelines?""
+- Can count: ""Guideline A has 150 citations"" (independent of what others cite)
+
+DEDUPLICATION KEY: None - keeps all (guideline, reference) pairs
+WHEN: All phases (this is citation-level structure)
+
+EXAMPLE:
+Guideline 12345 cites PMID 100
+Guideline 23456 cites PMID 100
+Guideline 34567 cites PMID 100
+
+Dataset contains:
+  - Row 1: guideline_pmid=12345, ref_pmid=100
+  - Row 2: guideline_pmid=23456, ref_pmid=100  
+  - Row 3: guideline_pmid=34567, ref_pmid=100
+  Total: 3 rows (same reference, different contexts)
+
+IMPACT ON COUNTS:
+- ""Total citations"" = 9,204 (all guideline-reference pairs)
+- ""Unique references"" = ~7,500 (unique PMIDs, regardless of how many times cited)",N/A - Methodology
+DEDUPLICATION_LEVEL_3,Trials Within Reference,How multiple trials cited by one reference are handled,Methodology,N/A,Phase 3-4: NCT extraction and registry fetch,N/A,N/A,"MULTIPLE TRIALS IN ONE REFERENCE: Depends on file structure
+
+SCENARIO A - UNIVERSE File (phase7_guideline_reference_nct_UNIVERSE_ANALYZED.csv):
+Structure: One row per (guideline, reference) pair
+If reference cites multiple trials:
+  - ref_primary_nct_number = ""NCT001"" (first/main trial)
+  - ref_all_nct_numbers = ""NCT001;NCT002;NCT003"" (all trials, semicolon-separated)
+
+Result: Single row with multiple NCTs in one field
+
+EXAMPLE UNIVERSE:
+Guideline 12345 cites Reference 67890 which discusses NCT001, NCT002, NCT003:
+  Row: guideline_pmid=12345, ref_pmid=67890, ref_primary_nct_number=NCT001, ref_all_nct_numbers=""NCT001;NCT002;NCT003""
+  Total: 1 row
+
+SCENARIO B - EXPLODED File (phase4_guideline_reference_nct_EXPLODED.csv - not used in final analysis):
+Structure: One row per (guideline, reference, trial) triple  
+If reference cites multiple trials:
+  - Each NCT gets separate row
+
+Result: Multiple rows for same citation
+
+EXAMPLE EXPLODED:
+Same citation creates 3 rows:
+  Row 1: guideline_pmid=12345, ref_pmid=67890, nct_number=NCT001
+  Row 2: guideline_pmid=12345, ref_pmid=67890, nct_number=NCT002
+  Row 3: guideline_pmid=12345, ref_pmid=67890, nct_number=NCT003
+  Total: 3 rows
+
+WHICH IS USED IN ANALYSIS?
+- UNIVERSE structure used in Phases 7-10 (avoids double-counting same citation)
+- EXPLODED not used in final analysis (would inflate citation counts)",N/A - Methodology
+DEDUPLICATION_LEVEL_4,Trials Across References (Within Guideline),How same trial cited by multiple references in one guideline is handled,Methodology,N/A,Phase 3-7: UNIVERSE structure,N/A,N/A,"SAME TRIAL, DIFFERENT REFERENCES, SAME GUIDELINE: NOT Deduplicated
+
+If one guideline cites the same trial through multiple references:
+  - Guideline A → Reference X → NCT001
+  - Guideline A → Reference Y → NCT001
+
+Result: 2 rows (different citations, same trial)
+
+WHY: These are genuinely different citations (different papers) that happen to discuss the same trial
+- Reference X might be the original trial publication
+- Reference Y might be a secondary analysis of the same trial
+- Both are legitimate citations that guideline committee reviewed
+
+DEDUPLICATION KEY: (guideline_pmid, ref_pmid) - not on nct_number
+WHEN: All phases
+
+EXAMPLE:
+Guideline 12345 cites:
+  - Reference 100 (original RCT) → NCT001
+  - Reference 200 (follow-up study) → NCT001
+
+Dataset contains:
+  Row 1: guideline_pmid=12345, ref_pmid=100, ref_primary_nct_number=NCT001
+  Row 2: guideline_pmid=12345, ref_pmid=200, ref_primary_nct_number=NCT001
+  Total: 2 citation rows (both count toward guideline's total)
+
+IMPACT:
+- ""Guideline total_citations"" = counts both (they are separate references)
+- ""Unique trials cited by guideline"" = 1 (same NCT)",N/A - Methodology
+DEDUPLICATION_LEVEL_5,Trials Across Guidelines,How same trial cited by multiple guidelines is handled,Methodology,N/A,Phase 3-7: UNIVERSE vs UNIQUE_TRIALS,N/A,N/A,"SAME TRIAL, MULTIPLE GUIDELINES: Depends on analysis level
+
+CITATION-LEVEL Analysis (UNIVERSE - Scenarios S1, S2, S4, S5, S6):
+Structure: Keeps all (guideline, reference, trial) relationships
+NOT deduplicated across guidelines
+
+If multiple guidelines cite same trial:
+  - Guideline A → Reference X → NCT001  
+  - Guideline B → Reference Y → NCT001
+  - Guideline C → Reference Z → NCT001
+
+Result: 3 rows (same trial, different citation contexts)
+
+WHY: Preserves citation patterns
+- Can ask: ""How many times is NCT001 cited?""
+- Can ask: ""Which guidelines cite NCT001?""
+- Citation is the unit of analysis
+
+EXAMPLE UNIVERSE:
+  Row 1: guideline_pmid=12345, ref_pmid=100, ref_primary_nct_number=NCT001
+  Row 2: guideline_pmid=23456, ref_pmid=200, ref_primary_nct_number=NCT001
+  Row 3: guideline_pmid=34567, ref_pmid=300, ref_primary_nct_number=NCT001
+  Total: 3 rows
+
+TRIAL-LEVEL Analysis (UNIQUE_TRIALS - Scenario S3):
+Structure: One row per unique NCT (deduplicated)
+Deduplicated across all guidelines
+
+Same scenario becomes:
+  Row 1: nct_number=NCT001, [keeps most complete data from 3 citations]
+  Total: 1 row
+
+WHY: Trial characteristics are the focus
+- Can ask: ""How many unique trials are cited?""
+- Can ask: ""What % of trials include women?"" (without double-counting)
+- Trial is the unit of analysis
+
+DEDUPLICATION KEY (S3): nct_number (or ref_primary_nct_number)
+METHOD: drop_duplicates(subset='nct_number', keep='first') after sorting by completeness
+WHEN: Phase 7 Step 7 (creates UNIQUE_TRIALS file)
+
+WHICH TO USE?
+- UNIVERSE: For guideline behavior analysis (""what do guidelines cite?"")
+- UNIQUE_TRIALS: For trial characteristics analysis (""what are properties of cited trials?"")",N/A - Methodology
+COUNT_INTERPRETATION_GUIDE,How to Interpret Counts,Quick reference for understanding count meanings,Reference Guide,N/A,Summary of deduplication logic,N/A,N/A,"CITATION COUNTS (UNIVERSE-based scenarios):
+
+""Total citations"" = 9,204
+  - Meaning: Total (guideline, reference) pairs
+  - Includes: Same reference cited by multiple guidelines (counts each time)
+  - Includes: Multiple references from same guideline discussing same trial (counts each reference)
+  - Unit: Citation instances
+  - Use for: ""How many times are things cited?""
+
+""Unique references"" = ~7,500  
+  - Meaning: Unique PMIDs (deduplicated across all guidelines)
+  - Removes: Duplicate citations of same PMID by different guidelines
+  - Unit: Unique papers
+  - Use for: ""How many different papers are cited?""
+
+""Trial citations"" = 1,455 (S1) or 1,600 (S2)
+  - Meaning: Citations that are clinical trials (by scenario definition)
+  - Includes: Same trial cited multiple times across guidelines
+  - Includes: Multiple references discussing same trial
+  - Unit: Trial citation instances
+  - Use for: ""How many trial citations appear in guidelines?""
+
+TRIAL COUNTS:
+
+""Unique NCTs"" = ~630 (S3)
+  - Meaning: Unique ClinicalTrials.gov registry numbers
+  - Removes: All duplicates (across guidelines, across references)
+  - Unit: Unique trials
+  - Use for: ""How many different trials are cited?""
+
+""NCT citations"" = ~630 (S4)
+  - Meaning: Citation-trial pairs (UNIVERSE structure)
+  - Includes: Same trial cited by different guidelines (separate rows)
+  - Includes: Same trial discussed by different references in one guideline (separate rows)
+  - Unit: Citation-trial relationships
+  - Use for: ""How many citation-trial connections exist?""
+
+GUIDELINE-LEVEL COUNTS:
+
+""Guideline total_citations"" = 150 (example for one guideline)
+  - Meaning: Number of (this guideline, reference) pairs
+  - Unique within guideline: Same reference counted once per guideline
+  - Can overlap across guidelines: If multiple guidelines cite same reference, each counts it
+  - Unit: Citations in this guideline
+  - Use for: ""How many references does this guideline cite?""
+
+""Guideline trial_citations"" = 45 (example)
+  - Meaning: Number of trial citations in this guideline (by scenario definition)
+  - Includes: Multiple references discussing same trial (counts each reference)
+  - Unit: Trial citations in this guideline
+  - Use for: ""How many trial citations does this guideline have?""
+
+""Guideline unique trials"" = 38 (example, if calculated)
+  - Meaning: Number of unique NCTs cited by this guideline
+  - Removes: Duplicates when multiple references discuss same trial
+  - Unit: Unique trials cited by this guideline
+  - Use for: ""How many different trials does this guideline cite?""
+
+KEY PRINCIPLE:
+- Citation-level (UNIVERSE): Counts relationships (same trial = multiple rows if cited multiple ways)
+- Trial-level (UNIQUE_TRIALS): Counts entities (same trial = one row regardless of citations)
+
+PRACTICAL EXAMPLES:
+
+Example 1: Famous Trial (NCT12345) cited everywhere
+  UNIVERSE: Appears 25 times (cited by 25 different guidelines)
+  UNIQUE_TRIALS: Appears 1 time (one unique trial)
+  Interpretation: Very influential trial (high citation count) but still just one trial
+
+Example 2: Guideline A's trial citations
+  Guideline A cites:
+    - Reference X → NCT001
+    - Reference Y → NCT001 (different paper, same trial)
+    - Reference Z → NCT002
+
+  UNIVERSE counts:
+    - total_citations for Guideline A = 3 (three references)
+    - trial_citations for Guideline A = 3 (all three are trials)
+    - Unique trials = 2 (NCT001 and NCT002)
+
+  Interpretation: Guideline cites 3 trial papers, but only 2 unique trials
+
+Example 3: Cross-guideline trial overlap
+  Guideline A cites NCT001
+  Guideline B cites NCT001
+
+  UNIVERSE:
+    - Row 1: guideline_pmid=A, nct=NCT001
+    - Row 2: guideline_pmid=B, nct=NCT001
+    - Count: 2 citation-trial relationships
+
+  UNIQUE_TRIALS:
+    - Row 1: nct=NCT001
+    - Count: 1 unique trial
+
+  Interpretation: Two guidelines rely on same trial (important trial for field)",N/A - Reference Guide

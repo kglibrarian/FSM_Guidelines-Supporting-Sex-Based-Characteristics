@@ -1,0 +1,7 @@
+scenario_id,name,short_name,definition,count,count_type,can_verify_sex,recommended
+S1_PubMed_PT,PubMed Publication Type,PubMed PT,ref_is_clinical_trial_pt_type = True,1527,citation,False,False
+S2_PubMed_OR_NCT,PubMed OR Registry,PubMed OR NCT,ref_is_clinical_trial_pt_type = True OR ref_primary_nct_number is not null,1612,citation,partial,False
+S3_Unique_Trials,Unique Trials (Deduplicated),Unique Trials,Deduplicated from phase7_trials_UNIQUE_NCT_ANALYZED.csv,505,trial,True,False
+S4_Registry_Verified,Registry-Verified Trials,Registry-Verified,ref_primary_nct_number is not null,630,citation,True,True
+S5_All_NCTs,All NCT Mentions,All NCTs,ref_all_nct_numbers is not null,630,citation,True,False
+S6_High_Quality,High-Quality Registry Data,High-Quality,ref_primary_nct_number is not null AND nct_official_title is not null,617,citation,True,False
