@@ -18,11 +18,11 @@ from datetime import datetime
 # STANDARDIZED CHECKPOINT CONFIGURATION
 # ==============================================================================
 
-# All checkpoints go in a single organized directory structure
+# Default checkpoint directory (will be updated by set_checkpoint_directory)
 CHECKPOINT_BASE_DIR = 'output/checkpoints'
 CHECKPOINT_INTERVAL = 50  # Save every 50 items
 
-# Phase-specific subdirectories
+# Phase-specific subdirectories (will be updated by set_checkpoint_directory)
 PHASE_DIRS = {
     'phase1_pubmed': os.path.join(CHECKPOINT_BASE_DIR, 'phase1_pubmed'),
     'phase2_crossref': os.path.join(CHECKPOINT_BASE_DIR, 'phase2_crossref'),
@@ -33,8 +33,99 @@ PHASE_DIRS = {
 }
 
 
+def set_checkpoint_directory(output_folder):
+    """
+    Set the checkpoint base directory based on your OUTPUT_FOLDER.
+    Call this ONCE at the start of your notebook after defining OUTPUT_FOLDER.
+    
+    This makes checkpoints save within your output folder, keeping everything organized.
+    
+    Parameters:
+    -----------
+    output_folder : str
+        Your OUTPUT_FOLDER path (e.g., 'output/sex_characteristics_analysis')
+        Checkpoints will be saved in: output_folder/checkpoints/
+    
+    Returns:
+    --------
+    str : The new checkpoint base directory path
+    
+    Example:
+    --------
+    >>> OUTPUT_FOLDER = 'output/sex_characteristics_analysis'
+    >>> set_checkpoint_directory(OUTPUT_FOLDER)
+    ✓ Checkpoint directory set to: output/sex_characteristics_analysis/checkpoints
+    
+    >>> # Now all checkpoint functions will use this directory:
+    >>> save_phase1_checkpoint(...)  # Saves to: output/sex_characteristics_analysis/checkpoints/phase1_pubmed/
+    """
+    global CHECKPOINT_BASE_DIR, PHASE_DIRS
+    
+    # Update base directory
+    CHECKPOINT_BASE_DIR = os.path.join(output_folder, 'checkpoints')
+    
+    # Update all phase directories to use new base
+    PHASE_DIRS = {
+        'phase1_pubmed': os.path.join(CHECKPOINT_BASE_DIR, 'phase1_pubmed'),
+        'phase2_crossref': os.path.join(CHECKPOINT_BASE_DIR, 'phase2_crossref'),
+        'phase3_trials': os.path.join(CHECKPOINT_BASE_DIR, 'phase3_trials'),
+        'phase4_ctgov': os.path.join(CHECKPOINT_BASE_DIR, 'phase4_ctgov'),
+        'phase6_abstracts': os.path.join(CHECKPOINT_BASE_DIR, 'phase6_abstracts'),
+        'phase7_analysis': os.path.join(CHECKPOINT_BASE_DIR, 'phase7_analysis')
+    }
+    
+    print(f"✓ Checkpoint directory set to: {CHECKPOINT_BASE_DIR}")
+    return CHECKPOINT_BASE_DIR
+
+
+def get_checkpoint_directory():
+    """
+    Get the current checkpoint base directory.
+    
+    Returns:
+    --------
+    str : Current checkpoint base directory path
+    
+    Example:
+    --------
+    >>> current_dir = get_checkpoint_directory()
+    >>> print(current_dir)
+    output/sex_characteristics_analysis/checkpoints
+    """
+    return CHECKPOINT_BASE_DIR
+
+
+def get_phase_directory(phase_name):
+    """
+    Get the checkpoint directory for a specific phase.
+    
+    Parameters:
+    -----------
+    phase_name : str
+        One of: 'phase1_pubmed', 'phase2_crossref', 'phase3_trials', 
+                'phase4_ctgov', 'phase6_abstracts', 'phase7_analysis'
+    
+    Returns:
+    --------
+    str : Path to the phase's checkpoint directory
+    
+    Raises:
+    -------
+    ValueError : If phase_name is not valid
+    
+    Example:
+    --------
+    >>> phase1_dir = get_phase_directory('phase1_pubmed')
+    >>> print(phase1_dir)
+    output/sex_characteristics_analysis/checkpoints/phase1_pubmed
+    """
+    if phase_name not in PHASE_DIRS:
+        raise ValueError(f"Invalid phase name. Choose from: {list(PHASE_DIRS.keys())}")
+    return PHASE_DIRS[phase_name]
+
+
 # ==============================================================================
-# CHECKPOINT CLEANUP FUNCTION - RUN BEFORE STARTING PIPELINE
+# CHECKPOINT CLEANUP FUNCTIONS
 # ==============================================================================
 
 def cleanup_all_checkpoints(confirm=True):
@@ -45,6 +136,10 @@ def cleanup_all_checkpoints(confirm=True):
     -----------
     confirm : bool
         If True, requires manual confirmation before deleting
+    
+    Returns:
+    --------
+    bool : True if cleanup succeeded, False if cancelled
     """
     if os.path.exists(CHECKPOINT_BASE_DIR):
         if confirm:
@@ -70,9 +165,14 @@ def cleanup_phase_checkpoints(phase_name, confirm=True):
     Parameters:
     -----------
     phase_name : str
-        One of: 'phase1_pubmed', 'phase2_crossref', 'phase3_trials', 'phase4_ctgov', 'phase6_abstracts'
+        One of: 'phase1_pubmed', 'phase2_crossref', 'phase3_trials', 
+                'phase4_ctgov', 'phase6_abstracts', 'phase7_analysis'
     confirm : bool
         If True, requires manual confirmation before deleting
+    
+    Returns:
+    --------
+    bool : True if cleanup succeeded, False if cancelled or invalid phase
     """
     if phase_name not in PHASE_DIRS:
         print(f"❌ Invalid phase name. Choose from: {list(PHASE_DIRS.keys())}")
@@ -93,7 +193,6 @@ def cleanup_phase_checkpoints(phase_name, confirm=True):
     else:
         print(f"No checkpoints found for {phase_name}")
         return True
-
 
 # ==============================================================================
 # PHASE 1: PUBMED DATA COLLECTION CHECKPOINTS

@@ -1,0 +1,50 @@
+# ============================================================================
+# Sex-Based Guidelines Analysis - Required Python Packages
+# ============================================================================
+# Minimal set of dependencies for running the analysis pipelines
+# Python 3.8+ required
+# ============================================================================
+
+# Core data manipulation
+pandas>=2.0.0
+numpy>=1.20.0
+
+# API access and web requests
+biopython>=1.80          # For PubMed Entrez API
+requests>=2.26.0         # For CrossRef, ClinicalTrials.gov APIs
+
+# Excel file handling
+openpyxl>=3.0.0         # Reading/writing .xlsx files
+xlsxwriter>=3.0.0       # Advanced Excel formatting for reports
+
+# Progress bars (optional but recommended)
+tqdm>=4.60.0            # Progress indicators for long-running processes
+
+# ============================================================================
+# Optional - For running Jupyter notebooks
+# ============================================================================
+# jupyter>=1.0.0
+# notebook>=6.4.0
+# ipykernel>=6.0.0
+
+# ============================================================================
+# Notes:
+# ============================================================================
+# - All other imports (os, re, json, datetime, logging, etc.) are from
+#   Python standard library and require no installation
+# 
+# - If you need to run the notebooks in Jupyter, uncomment the optional
+#   packages above or install separately:
+#   pip install jupyter
+#
+# - For development/testing, you may also want:
+#   pytest>=6.0.0        # For running tests
+#   black>=21.0          # For code formatting
+# ============================================================================
+
+# Installation:
+# pip install -r requirements.txt
+#
+# Or with Jupyter:
+# pip install -r requirements.txt jupyter
+# ============================================================================
