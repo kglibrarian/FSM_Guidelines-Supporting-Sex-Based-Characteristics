@@ -579,52 +579,182 @@ def load_phase6_checkpoint():
 
 
 
-# Add these two functions:
-def create_phase7_dirs():
-    """Create Phase 7 checkpoint directory"""
-    os.makedirs(PHASE_DIRS['phase7_analysis'], exist_ok=True)
+# # Add these two functions:
+# def create_phase7_dirs():
+#     """Create Phase 7 checkpoint directory"""
+#     os.makedirs(PHASE_DIRS['phase7_analysis'], exist_ok=True)
+
+# def save_phase7_checkpoint(last_idx, sex_analyses, total_trials):
+#     """Save Phase 7 (Sex Analysis) checkpoint"""
+#     create_phase7_dirs()
+#     checkpoint = {
+#         'last_idx': last_idx,
+#         'sex_analyses': sex_analyses,
+#         'total_trials': total_trials,
+#         'timestamp': datetime.now().isoformat()
+#     }
+#     checkpoint_file = os.path.join(
+#         PHASE_DIRS['phase7_analysis'],
+#         f'phase7_checkpoint_analysis_{last_idx:05d}.pkl'
+#     )
+#     with open(checkpoint_file, 'wb') as f:
+#         pickle.dump(checkpoint, f)
+    
+#     if sex_analyses:
+#         csv_file = os.path.join(
+#             PHASE_DIRS['phase7_analysis'],
+#             f'phase7_checkpoint_analysis_{last_idx:05d}.csv'
+#         )
+#         pd.DataFrame(sex_analyses).to_csv(csv_file, index=False)
+
+# def load_phase7_checkpoint():
+#     """Load the latest Phase 7 checkpoint"""
+#     phase7_dir = PHASE_DIRS['phase7_analysis']
+#     if not os.path.exists(phase7_dir):
+#         return None
+#     checkpoint_files = [
+#         f for f in os.listdir(phase7_dir)
+#         if f.startswith('phase7_checkpoint_analysis_') and f.endswith('.pkl')
+#     ]
+#     if not checkpoint_files:
+#         return None
+#     latest_file = max(
+#         checkpoint_files,
+#         key=lambda x: int(x.replace('phase7_checkpoint_analysis_', '').replace('.pkl', ''))
+#     )
+#     checkpoint_path = os.path.join(phase7_dir, latest_file)
+#     with open(checkpoint_path, 'rb') as f:
+#         checkpoint = pickle.load(f)
+#     print(f"\n📁 Loaded Phase 7 checkpoint:")
+#     print(f"   Last analysis index: {checkpoint['last_idx']:,}")
+#     print(f"   Analyses processed: {len(checkpoint['sex_analyses']):,} / {checkpoint['total_trials']:,}")
+#     print(f"   Timestamp: {checkpoint['timestamp']}\n")
+#     return checkpoint
+
+# def save_phase7_checkpoint(last_idx, sex_analyses, total_trials):
+#     """
+#     Lightweight checkpoint system:
+#     - The .pkl stores ONLY the index + metadata (tiny, ~1KB)
+#     - The data is written to a SINGLE rolling CSV (append mode)
+#     - Old checkpoint .pkl files are deleted after each save
+#     """
+#     create_phase7_dirs()
+    
+#     checkpoint_file = os.path.join(
+#         PHASE_DIRS['phase7_analysis'],
+#         'phase7_checkpoint_latest.pkl'   # single file, always overwritten
+#     )
+#     rolling_csv = os.path.join(
+#         PHASE_DIRS['phase7_analysis'],
+#         'phase7_checkpoint_rolling.csv'  # single file, appended to
+#     )
+    
+#     # --- Save lightweight pickle (index + metadata only, NO data) ---
+#     checkpoint = {
+#         'last_idx': last_idx,
+#         'total_trials': total_trials,
+#         'rolling_csv': rolling_csv,
+#         'timestamp': datetime.now().isoformat()
+#     }
+#     with open(checkpoint_file, 'wb') as f:
+#         pickle.dump(checkpoint, f)
+    
+#     # --- Append only NEW rows to rolling CSV ---
+#     if sex_analyses:
+#         new_df = pd.DataFrame(sex_analyses)
+#         write_header = not os.path.exists(rolling_csv)
+#         new_df.to_csv(rolling_csv, mode='a', header=write_header, index=False)
+    
+#     # --- Delete old numbered checkpoint files if they exist ---
+#     phase7_dir = PHASE_DIRS['phase7_analysis']
+#     for f in os.listdir(phase7_dir):
+#         if (f.startswith('phase7_checkpoint_analysis_') and 
+#                 (f.endswith('.pkl') or f.endswith('.csv'))):
+#             os.remove(os.path.join(phase7_dir, f))
+
+
+# def load_phase7_checkpoint():
+#     """Load latest checkpoint and reconstruct sex_analyses from rolling CSV"""
+#     phase7_dir = PHASE_DIRS['phase7_analysis']
+#     checkpoint_file = os.path.join(phase7_dir, 'phase7_checkpoint_latest.pkl')
+    
+#     if not os.path.exists(phase7_dir) or not os.path.exists(checkpoint_file):
+#         return None
+    
+#     with open(checkpoint_file, 'rb') as f:
+#         checkpoint = pickle.load(f)
+    
+#     # Reconstruct sex_analyses from the rolling CSV
+#     rolling_csv = checkpoint.get('rolling_csv', os.path.join(phase7_dir, 'phase7_checkpoint_rolling.csv'))
+#     if os.path.exists(rolling_csv):
+#         df = pd.read_csv(rolling_csv)
+#         checkpoint['sex_analyses'] = df.to_dict('records')
+#     else:
+#         checkpoint['sex_analyses'] = []
+    
+#     print(f"\n📁 Loaded Phase 7 checkpoint:")
+#     print(f"   Last analysis index: {checkpoint['last_idx']:,}")
+#     print(f"   Analyses processed: {len(checkpoint['sex_analyses']):,} / {checkpoint['total_trials']:,}")
+#     print(f"   Timestamp: {checkpoint['timestamp']}\n")
+#     return checkpoint
 
 def save_phase7_checkpoint(last_idx, sex_analyses, total_trials):
-    """Save Phase 7 (Sex Analysis) checkpoint"""
-    create_phase7_dirs()
-    checkpoint = {
-        'last_idx': last_idx,
-        'sex_analyses': sex_analyses,
-        'total_trials': total_trials,
-        'timestamp': datetime.now().isoformat()
-    }
+    """
+    Lightweight checkpoint system:
+    - The .pkl stores ONLY the index + metadata (tiny, ~1KB)
+    - The data is written to a SINGLE rolling CSV (append mode)
+    - Old checkpoint .pkl files are deleted after each save
+    """
+    os.makedirs(PHASE_DIRS['phase7_analysis'], exist_ok=True)  # ✅ fixed: no longer calls create_phase7_dirs()
+    
     checkpoint_file = os.path.join(
         PHASE_DIRS['phase7_analysis'],
-        f'phase7_checkpoint_analysis_{last_idx:05d}.pkl'
+        'phase7_checkpoint_latest.pkl'
     )
+    rolling_csv = os.path.join(
+        PHASE_DIRS['phase7_analysis'],
+        'phase7_checkpoint_rolling.csv'
+    )
+    
+    checkpoint = {
+        'last_idx': last_idx,
+        'total_trials': total_trials,
+        'rolling_csv': rolling_csv,
+        'timestamp': datetime.now().isoformat()
+    }
     with open(checkpoint_file, 'wb') as f:
         pickle.dump(checkpoint, f)
     
     if sex_analyses:
-        csv_file = os.path.join(
-            PHASE_DIRS['phase7_analysis'],
-            f'phase7_checkpoint_analysis_{last_idx:05d}.csv'
-        )
-        pd.DataFrame(sex_analyses).to_csv(csv_file, index=False)
+        new_df = pd.DataFrame(sex_analyses)
+        write_header = not os.path.exists(rolling_csv)
+        new_df.to_csv(rolling_csv, mode='a', header=write_header, index=False)
+    
+    phase7_dir = PHASE_DIRS['phase7_analysis']
+    for f in os.listdir(phase7_dir):
+        if (f.startswith('phase7_checkpoint_analysis_') and 
+                (f.endswith('.pkl') or f.endswith('.csv'))):
+            os.remove(os.path.join(phase7_dir, f))
+
 
 def load_phase7_checkpoint():
-    """Load the latest Phase 7 checkpoint"""
+    """Load latest checkpoint and reconstruct sex_analyses from rolling CSV"""
     phase7_dir = PHASE_DIRS['phase7_analysis']
-    if not os.path.exists(phase7_dir):
+    checkpoint_file = os.path.join(phase7_dir, 'phase7_checkpoint_latest.pkl')
+    
+    if not os.path.exists(phase7_dir) or not os.path.exists(checkpoint_file):
         return None
-    checkpoint_files = [
-        f for f in os.listdir(phase7_dir)
-        if f.startswith('phase7_checkpoint_analysis_') and f.endswith('.pkl')
-    ]
-    if not checkpoint_files:
-        return None
-    latest_file = max(
-        checkpoint_files,
-        key=lambda x: int(x.replace('phase7_checkpoint_analysis_', '').replace('.pkl', ''))
-    )
-    checkpoint_path = os.path.join(phase7_dir, latest_file)
-    with open(checkpoint_path, 'rb') as f:
+    
+    with open(checkpoint_file, 'rb') as f:
         checkpoint = pickle.load(f)
+    
+    rolling_csv = checkpoint.get('rolling_csv', os.path.join(phase7_dir, 'phase7_checkpoint_rolling.csv'))
+    if os.path.exists(rolling_csv):
+        df = pd.read_csv(rolling_csv)
+        checkpoint['sex_analyses'] = df.to_dict('records')
+    else:
+        checkpoint['sex_analyses'] = []
+    
     print(f"\n📁 Loaded Phase 7 checkpoint:")
     print(f"   Last analysis index: {checkpoint['last_idx']:,}")
     print(f"   Analyses processed: {len(checkpoint['sex_analyses']):,} / {checkpoint['total_trials']:,}")
