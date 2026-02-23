@@ -310,8 +310,8 @@ MIT License - See LICENSE file for details.
 
 ## 👥 Contact
 
-**Maintainer:** [Your Name]  
-**Email:** [your.email@northwestern.edu]  
+**Maintainer:** Karen Gutzman
+**Email:** karen.gutzman@northwestern.edu
 **Institution:** Northwestern University, Galter Health Sciences Library
 
 **For questions:**
